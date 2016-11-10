@@ -102,5 +102,6 @@ void SeqStack <ElemType>::PrintStack()
 	{
 		cout << m_base[i] << " ";
 	}
+	cout << endl;
 }
 #endif
