@@ -38,7 +38,6 @@ int main()
 		cout << "删除后：";
 		doublylinklist.PrintList();              //输出所有元素
 		cout << endl;
-		cout << "nihao";
 		//// 线性表长度
 		//cout << "线性表的长度为：" << seqList.Length() << endl;
 
