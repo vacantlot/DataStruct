@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "divList", "list\list.vcxproj", "{E2E3D3DA-F8B8-446A-B4A9-5ECA66D7B976}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KMP", "ConsoleApplication1\ConsoleApplication1.vcxproj", "{622578E6-BE4A-42C2-BF8C-E58497B82A0D}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "doublyLinkedList", "doublyLinkedList\doublyLinkedList.vcxproj", "{524A6EBE-7760-423D-9C87-CCCEECF93565}"
@@ -27,14 +25,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E2E3D3DA-F8B8-446A-B4A9-5ECA66D7B976}.Debug|x64.ActiveCfg = Debug|x64
-		{E2E3D3DA-F8B8-446A-B4A9-5ECA66D7B976}.Debug|x64.Build.0 = Debug|x64
-		{E2E3D3DA-F8B8-446A-B4A9-5ECA66D7B976}.Debug|x86.ActiveCfg = Debug|Win32
-		{E2E3D3DA-F8B8-446A-B4A9-5ECA66D7B976}.Debug|x86.Build.0 = Debug|Win32
-		{E2E3D3DA-F8B8-446A-B4A9-5ECA66D7B976}.Release|x64.ActiveCfg = Release|x64
-		{E2E3D3DA-F8B8-446A-B4A9-5ECA66D7B976}.Release|x64.Build.0 = Release|x64
-		{E2E3D3DA-F8B8-446A-B4A9-5ECA66D7B976}.Release|x86.ActiveCfg = Release|Win32
-		{E2E3D3DA-F8B8-446A-B4A9-5ECA66D7B976}.Release|x86.Build.0 = Release|Win32
 		{622578E6-BE4A-42C2-BF8C-E58497B82A0D}.Debug|x64.ActiveCfg = Debug|x64
 		{622578E6-BE4A-42C2-BF8C-E58497B82A0D}.Debug|x64.Build.0 = Debug|x64
 		{622578E6-BE4A-42C2-BF8C-E58497B82A0D}.Debug|x86.ActiveCfg = Debug|Win32
