@@ -1,5 +1,6 @@
 #include<iostream>
 #include"seqStack.h"
+#include <fstream>
 using std::cout;
 using std::cin;
 using std::endl;
@@ -43,41 +44,41 @@ int main()
 #pragma endregion
 
 #pragma region 背包问题
-		SeqStack<int> seqstack, order;
-		int maxPackWeight = 20;
-		int packageWeight = 0;
-		int r[] = { 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21 };
-		//int r[] = {1,2,1,2,3,4,6,7,8,5,6,7,8,9,10};
-		int strLength = sizeof(r) / 4;  //数组长度
+		//SeqStack<int> seqstack, order;
+		//int T = 20;
+		//int packageWeight = 0;
+		//int r[] = { 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21 };
+		////int r[] = {1,2,1,2,3,4,6,7,8,5,6,7,8,9,10};
+		//int strLength = sizeof(r) / 4;  //数组长度
 
-		for (int i = 0; i <= strLength; i++)
-		{
+		//for (int i = 0; i <= strLength; i++)
+		//{
 
-			if (i == strLength)
-			{
-				packageWeight -= seqstack.Pop();
-				i = order.Pop() + 1;
-				if (i == strLength && packageWeight != 0)
-				{
-					packageWeight -= seqstack.Pop();
-					i = order.Pop() + 1;
-				}
-			}
+		//	if (i == strLength)
+		//	{
+		//		packageWeight -= seqstack.Pop();
+		//		i = order.Pop() + 1;
+		//		if (i == strLength && packageWeight != 0)
+		//		{
+		//			packageWeight -= seqstack.Pop();
+		//			i = order.Pop() + 1;
+		//		}
+		//	}
 
-			if (packageWeight + r[i] == maxPackWeight)
-			{
-				seqstack.Push(r[i]);
-				seqstack.PrintStack();
-				seqstack.Pop();
-			}
+		//	if (packageWeight + r[i] == T)
+		//	{
+		//		seqstack.Push(r[i]);
+		//		seqstack.PrintStack();
+		//		seqstack.Pop();
+		//	}
 
-			if (packageWeight + r[i] < maxPackWeight)
-			{
-				seqstack.Push(r[i]);
-				order.Push(i);
-				packageWeight += r[i];
-			}
-		}
+		//	if (packageWeight + r[i] < T)
+		//	{
+		//		seqstack.Push(r[i]);
+		//		order.Push(i);
+		//		packageWeight += r[i];
+		//	}
+		//}
 
 #pragma endregion
 	}
