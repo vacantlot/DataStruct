@@ -17,7 +17,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ShuffleArray", "ShuffleArra
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "3.2linkStack", "3.2linkStact\3.2linkStact.vcxproj", "{C07E454D-5EF3-4E79-8510-0B2FE841BB67}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "3.3CirQueue", "Queue\Queue.vcxproj", "{2ED1CEAF-3C3A-4324-A4B6-8BF87B2F2CFB}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "3.3CirQueue", "3.3CirQueue\Queue.vcxproj", "{2ED1CEAF-3C3A-4324-A4B6-8BF87B2F2CFB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -5,27 +5,23 @@ class CirQueue
 {
 public:
 	CirQueue() { front = rear = QueueSize - 1; }
-	~CirQueue();
-	void EnQueue(DataType x);  //x入队
-	DataType DeQueue();        //队列顶元素弹出（删除）
-	DataType GetQueue();       //取出队列顶元素（不删除）
-	bool IsEmpty() { return front == rear ? 1 : 0; } // 判空
+	
+	void EnQueue(DataType x);
+	DataType DeQueue();
+	DataType GetQueue();
+	bool IsEmpty() { return front == rear ? 1 : 0; }
 
 private:
 	DataType data[QueueSize];
 	int front, rear;
 };
 
-template<typename DataType>
-CirQueue<DataType>::~CirQueue()
-{
-	delete[] data;
-}
+
 
 template<typename DataType>
 inline void CirQueue<DataType>::EnQueue(DataType x)
 {
-	if ((rear + 1) % QueueSize == front)
+	if ((rear+1)%QueueSize == front)
 	{
 		throw "上溢";
 	}
