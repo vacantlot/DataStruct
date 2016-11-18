@@ -16,7 +16,7 @@ public:
 	DataType DeQueue();
 	DataType GetQueue();
 	int IsEmpty() {return front == rear ? 1 : 0; }
-
+	void Show();
 private:
 	Node<DataType> *front, *rear;
 };
@@ -48,6 +48,7 @@ inline void LinkQueue<DataType>::EnQueue(DataType x)
 	s->data = x;
 	rear->next = s;  //将结点s插入到队尾
 	rear = s;
+	s->next = nullptr;
 }
 
 template<typename DataType>
@@ -75,3 +76,12 @@ inline DataType LinkQueue<DataType>::GetQueue() //取队头元素
 	return front->next->data;
 }
 
+template <class DataType>
+void LinkQueue<DataType>::Show()
+{
+	Node <DataType> *s;
+	s = front->next;
+	for (; s != nullptr; s = s->next)cout << s->data << "\t";
+	cout << "\n";
+
+}

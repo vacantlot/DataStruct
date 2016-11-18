@@ -1,19 +1,24 @@
-#include "CirQueue.h"
+#include "LinkedQueue.h"
 #include <iostream>
 using namespace std;
 
 int main()
 {
-	int r[] = { 1,2,3,4,5,6,7,8,9 };
-
-	CirQueue<int> queue;
-
-	for each (int num in r)
+	LinkQueue<int> PT;
+	PT.EnQueue(1);
+	int a;
+	cout << "请输入输出的行数";
+	cin >> a;
+	for (int i = 1; i <= a; i++)
 	{
-		queue.EnQueue(num);
+		PT.Show();
+		for (int count = 1; count <= i - 1; count++)
+		{
+			PT.EnQueue(PT.DeQueue() + PT.GetQueue());
+		}
+		PT.EnQueue(1);
 	}
-	cout<< queue.DeQueue()<<endl;
-	cout << queue.IsEmpty();
+	
 	return 0;
 
 }
