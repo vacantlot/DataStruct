@@ -9,8 +9,7 @@ public:
 	void EnQueue(DataType x);
 	DataType DeQueue();
 	DataType GetQueue();
-	bool IsEmpty() { return front == rear ? 1 : 0; }
-
+	bool IsEmpty() { return front == rear ? true : false; }
 private:
 	DataType data[QueueSize];
 	int front, rear;
@@ -37,7 +36,6 @@ inline DataType CirQueue<DataType>::DeQueue()
 		throw "обрГ";
 	}
 	front = (front + 1) % QueueSize;
-
 	return data[front];
 }
 
@@ -52,5 +50,6 @@ inline DataType CirQueue<DataType>::GetQueue()
 
 	return data[i];
 }
+
 
 

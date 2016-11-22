@@ -1,18 +1,19 @@
 #pragma once
+#include "../3.3CirQueue/CirQueue.h"
 template<typename T>
-struct BiNode
+struct BTNode
 {
-	DataType data;
-	BiNode<DataType> *lchild, *rchild;
+	T data;
+	BTNode<T> *lchild, *rchild;
 };
 
 template<typename T>
-class BiTree
+class BinaryTree
 {
 public:
 	BinaryTree();             //构造函数，初始化一棵二叉树，其前序序列由键盘输入
-	~BinaryTree(void);         //析构函数，释放二叉链表中各结点的存储空间
-	BTNode<T>* GetRoot();  //获得指向根结点的指针
+	~BinaryTree(void);        //析构函数，释放二叉链表中各结点的存储空间
+	BTNode<T>* GetRoot();      //获得指向根结点的指针
 	void PreOrder(BTNode<T> *root);     //前序遍历二叉树
 	void InOrder(BTNode<T> *root);      //中序遍历二叉树
 	void PostOrder(BTNode<T> *root);    //后序遍历二叉树
@@ -21,7 +22,6 @@ private:
 	BTNode<T> *root;         //指向根结点的头指针
 	BTNode<T> *Create();     //有参构造函数调用
 	void Release(BTNode<T> *root);   //析构函数调用 
-
 };
 
 /*
@@ -73,7 +73,7 @@ BTNode<T>* BinaryTree<T>::GetRoot()
 template<typename T>
 void BinaryTree<T>::PreOrder(BTNode<T> *root)
 {
-	if (root == NULL)  return;
+	if (root == nullptr)  return;
 	else {
 		cout << root->data << " ";
 		PreOrder(root->lchild);
@@ -91,7 +91,7 @@ void BinaryTree<T>::PreOrder(BTNode<T> *root)
 template <typename T>
 void BinaryTree<T>::InOrder(BTNode<T> *root)
 {
-	if (root == NULL)  return;      //递归调用的结束条件	          
+	if (root == nullptr)  return;      //递归调用的结束条件	          
 	else {
 		InOrder(root->lchild);    //中序递归遍历root的左子树
 		cout << root->data << " ";    //访问根结点的数据域
@@ -108,7 +108,7 @@ void BinaryTree<T>::InOrder(BTNode<T> *root)
 template <typename T>
 void BinaryTree<T>::PostOrder(BTNode<T> *root)
 {
-	if (root == NULL)   return;       //递归调用的结束条件
+	if (root == nullptr)   return;       //递归调用的结束条件
 	else {
 		PostOrder(root->lchild);    //后序递归遍历root的左子树
 		PostOrder(root->rchild);    //后序递归遍历root的右子树
@@ -135,15 +135,15 @@ void BinaryTree<T>::LeverOrder(BTNode<T> *root)
 	BTNode<T>* Q[MaxSize];
 	BTNode<T>* q;
 
-	if (root == NULL) return;
+	if (root == nullptr) return;
 	else {
 	Q[rear++] = root;
 	while (front != rear)
 	{
 	q = Q[front++];
 	cout << q->data << " ";
-	if (q->lchild != NULL)    Q[rear++] = q->lchild;
-	if (q->rchild != NULL)    Q[rear++] = q->rchild;
+	if (q->lchild != nullptr)    Q[rear++] = q->lchild;
+	if (q->rchild != nullptr)    Q[rear++] = q->rchild;
 	}
 	}
 	*/
@@ -155,10 +155,10 @@ void BinaryTree<T>::LeverOrder(BTNode<T> *root)
 	else
 	{
 		q.EnQueue(root);
-		while (q.Empty())
+		while (q.IsEmpty())
 		{
 			BTNode<T> *node = q.DeQueue();
-			cout << node->data;
+			cout << node->data<<" ";
 			if (node->lchild != nullptr)
 			{
 				q.EnQueue(node->lchild);
@@ -185,9 +185,9 @@ BTNode<T>* BinaryTree<T>::Create()
 	T ch;
 	cout << "请输入创建一棵二叉树的结点数据" << endl;
 	cin >> ch;
-	if (ch == "#")
+	if (ch == '#')
 	{
-		root = NULL;
+		root = nullptr;
 	}
 	else
 	{
@@ -209,7 +209,7 @@ BTNode<T>* BinaryTree<T>::Create()
 template<typename T>
 void BinaryTree<T>::Release(BTNode<T>* root)
 {
-	if (root != NULL) {
+	if (root != nullptr) {
 		Release(root->lchild);   //释放左子树
 		Release(root->rchild);   //释放右子树
 		delete root;
