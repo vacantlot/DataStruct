@@ -1,5 +1,6 @@
 #pragma once
 #include "../3.3CirQueue/CirQueue.h"
+#include <math.h>
 template<typename T>
 struct BTNode
 {
@@ -18,6 +19,8 @@ public:
 	void InOrder(BTNode<T> *root);      //中序遍历二叉树
 	void PostOrder(BTNode<T> *root);    //后序遍历二叉树
 	void LeverOrder(BTNode<T> *root);   //层序遍历二叉树
+	int TreeHeight(BTNode<T> *root);    //获取树的深度
+	void FormatPrintTree(BTNode<T> *root);
 private:
 	BTNode<T> *root;         //指向根结点的头指针
 	BTNode<T> *Create();     //有参构造函数调用
@@ -171,6 +174,22 @@ void BinaryTree<T>::LeverOrder(BTNode<T> *root)
 	}
 }
 
+template<typename T>
+inline int BinaryTree<T>::TreeHeight(BTNode<T>* root)
+{
+	int lHeight, rHeight;
+	if (root == nullptr)
+	{
+		return 0;
+	}
+	else 	
+	{
+		lHeight =  TreeHeight(root->lchild);
+		rHeight =  TreeHeight(root->rchild);
+		return 1 + (lHeight > rHeight ? lHeight : rHeight);  //为什么可以有值?   lHeight   rHeight  递归:系统就会自动用栈帮你保存(栈的个数)
+	}
+}
+
 /*
 *前置条件：空二叉树
 *输    入：数据ch;
@@ -216,3 +235,41 @@ void BinaryTree<T>::Release(BTNode<T>* root)
 	}
 }
 
+template <typename T>
+void BinaryTree<T>::FormatPrintTree(BTNode<T> *root)
+{
+	int i = 0 ,n = 1;
+	CirQueue<BTNode<T>*> q;
+	if (root == nullptr)
+	{
+		return;
+	}
+	else
+	{
+		q.EnQueue(root);
+		while (q.IsEmpty())
+		{
+			BTNode<T> *node = q.DeQueue();
+			for (int i = 0; i < TreeHeight(node); i++)
+			{
+				printf("     ");
+			}
+			cout << node->data << " ";
+			i++;
+			if (i == pow(2, n) - 1)
+			{
+				n++;
+				printf("\n");
+			}			
+			if (node->lchild != nullptr)
+			{
+				q.EnQueue(node->lchild);				
+			}
+			if (node->rchild != nullptr)
+			{
+				q.EnQueue(node->rchild);
+			}
+			
+		}
+	}
+}

@@ -9,7 +9,7 @@ public:
 	void EnQueue(DataType x);
 	DataType DeQueue();
 	DataType GetQueue();
-	bool IsEmpty() { return front == rear ? true : false; }
+	bool IsEmpty() { return front == rear ? 0 : 1; }
 private:
 	DataType data[QueueSize];
 	int front, rear;
