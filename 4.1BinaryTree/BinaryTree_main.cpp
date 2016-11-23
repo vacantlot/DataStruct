@@ -17,6 +17,18 @@ int main()
 	btree->LeverOrder(btree->GetRoot());
 	btree->~BinaryTree();*/
 	//cout << btree->TreeHeight(btree->GetRoot());
-	btree->FormatPrintTree(btree->GetRoot());
+	//btree->FormatPrintTree(btree->GetRoot());
+	cout << "树的深度为：" << btree->TreeHeight(btree->GetRoot())<<endl;
+	cout << "删除结点B之前:" << endl;
+
+	btree->Print(btree->GetRoot(), 0);
+
+	cout << "输出删除结点B后:"<<endl;
+	/*btree->Release(btree->GetRoot()->lchild);
+	btree->Print(btree->GetRoot(), 0);*/
+	
+	//btree->Release(btree->search(btree->GetRoot(), 'A'));
+	btree->Release(btree->GetRoot());
+	btree->Print(btree->GetRoot() , 1);
 
 }

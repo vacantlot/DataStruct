@@ -1,6 +1,8 @@
 #pragma once
 #include "../3.3CirQueue/CirQueue.h"
 #include <math.h>
+#include <map>
+#include <algorithm>
 template<typename T>
 struct BTNode
 {
@@ -20,11 +22,15 @@ public:
 	void PostOrder(BTNode<T> *root);    //后序遍历二叉树
 	void LeverOrder(BTNode<T> *root);   //层序遍历二叉树
 	int TreeHeight(BTNode<T> *root);    //获取树的深度
-	void FormatPrintTree(BTNode<T> *root);
+	void FormatPrintTree(BTNode<T> *root);  //按照树的形状输出
+	void Print(BTNode<T> *start, int n);
+	BTNode<T>* Find(const T item) const;
+	void Release(BTNode<T> *root);   //析构函数调用 
+	BTNode<T>* search(BTNode<T> *B , T search_data);
 private:
 	BTNode<T> *root;         //指向根结点的头指针
 	BTNode<T> *Create();     //有参构造函数调用
-	void Release(BTNode<T> *root);   //析构函数调用 
+	
 };
 
 /*
@@ -232,6 +238,7 @@ void BinaryTree<T>::Release(BTNode<T>* root)
 		Release(root->lchild);   //释放左子树
 		Release(root->rchild);   //释放右子树
 		delete root;
+		root = nullptr;
 	}
 }
 
@@ -272,4 +279,73 @@ void BinaryTree<T>::FormatPrintTree(BTNode<T> *root)
 			
 		}
 	}
+}
+
+
+template<typename T>
+void BinaryTree<T>::Print(BTNode<T> *start, int n) 
+{
+	if (start == nullptr)
+	{
+		for (int i = 0; i < n; i++) 
+		{
+			cout << "     ";
+		}
+		cout << "NULL" << endl;
+		return;
+	}
+	Print(start->rchild, n + 1);
+	for (int i = 0; i < n; i++) 
+	{	
+		cout << "     ";      //打印出树深度个数的空白
+	}
+	if (n >= 0) 
+	{
+		cout << start->data << "--->" << endl;
+	}
+	Print(start->lchild, n + 1);
+}
+
+
+template<typename T> 
+BTNode<T>* BinaryTree<T>::Find(const T item) const {
+	BTNode<T> *pstart = root;
+	while (pstart != nullptr ) {
+		if (item == pstart->data) {
+			return pstart;
+		}
+		if (item < pstart->data) {
+			pstart = pstart->lchild;	//if less than the node then find in the left subtree
+		}
+		else {
+			pstart = pstart->rchild;//if more than the node then find in the right subtree
+		}
+	}
+	return NULL;
+}
+
+template<typename T>
+BTNode<T>*  BinaryTree<T>::search(BTNode<T> *B , T search_data)
+{
+	cout << "search data: " << search_data << endl;
+	BTNode<T> *backup = nullptr;
+	while (B != nullptr && B->data != search_data) {
+		 backup = B;
+		if (search_data !=  B->data)
+			B = B->lchild;
+		else
+			B = B->rchild;
+	}
+	return backup;
+	//    if(B->data == search_data)
+	//        return B;
+	//    if(search_data < B->data) {
+	//        if(! B->left_child)
+	//            return B;
+	//        B = search(B->left_child, search_data);
+	//    }else {
+	//        if(! B->right_child)
+	//            return B;
+	//        B = search(B->right_child, search_data);
+	//    }
 }
