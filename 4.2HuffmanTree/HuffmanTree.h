@@ -11,7 +11,7 @@ template<typename T>
 class HuffmanTree
 {
 public:
-	HuffmanTree(T data[], int w[], int n);
+	HuffmanTree(T data[] , int w[] , int n); //data叶子结点   w 叶子的权值 n叶子个数
 	~HuffmanTree();
 	void Bulid();
 	void Print();
@@ -33,7 +33,7 @@ private:
 // Parameter: int n
 //************************************
 template<typename T>
-HuffmanTree<T>::HuffmanTree(T data[], int w[], int n)
+HuffmanTree<T>::HuffmanTree(T data[], int w[], int n) 
 {
 	m_size = n;
 	m_huffTree = new Element<char>[2 * m_size - 1];

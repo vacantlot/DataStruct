@@ -238,7 +238,7 @@ void BinaryTree<T>::Release(BTNode<T>* root)
 		Release(root->lchild);   //释放左子树
 		Release(root->rchild);   //释放右子树
 		delete root;
-		root = nullptr;
+		//root = nullptr;
 	}
 }
 
