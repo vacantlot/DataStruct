@@ -11,11 +11,11 @@ template<typename T>
 class HuffmanTree
 {
 public:
-	HuffmanTree(T data[] , int w[] , int n); //data叶子结点   w 叶子的权值 n叶子个数
+	HuffmanTree(T data[], int w[], int n); //data叶子结点   w 叶子的权值 n叶子个数
 	~HuffmanTree();
 	void Bulid();
 	void Print();
-
+	int TreeHeight(Element<T> *m_huffTree);
 private:
 	Element<T> *m_huffTree;        //基地址指针
 	int m_size;                    // 哈夫曼树的叶子节点的数量
@@ -33,7 +33,7 @@ private:
 // Parameter: int n
 //************************************
 template<typename T>
-HuffmanTree<T>::HuffmanTree(T data[], int w[], int n) 
+HuffmanTree<T>::HuffmanTree(T data[], int w[], int n)
 {
 	m_size = n;
 	m_huffTree = new Element<char>[2 * m_size - 1];
@@ -76,8 +76,22 @@ void HuffmanTree<T>::Print()
 {
 	for (size_t i = 0; i < 2 * m_size - 1; i++)
 	{
-		cout << m_huffTree[i].data << ":" << m_huffTree[i].weight << ":" << m_huffTree[i].parent << ":" << m_huffTree[i].lchild << ":" << m_huffTree[i].rchild << endl;
+		if (i < m_size)
+		{
+			cout <<"LAEFNODE  " << m_huffTree[i].data << ":" << m_huffTree[i].weight << ":" << m_huffTree[i].parent << ":" << m_huffTree[i].lchild << ":" << m_huffTree[i].rchild << endl;
+		}
+		else
+		{
+			cout << "NULLNODE  " << ":" << m_huffTree[i].weight << ":" << m_huffTree[i].parent << ":" << m_huffTree[i].lchild << ":" << m_huffTree[i].rchild << endl;
+		}
+		printf("\n");
 	}
+}
+
+template<typename T>
+inline int HuffmanTree<T>::TreeHeight(Element<T>* m_huffTree)
+{
+	
 }
 
 template<typename T>

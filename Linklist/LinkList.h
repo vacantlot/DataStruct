@@ -17,10 +17,11 @@ public:
 	int locate(DataType x);//按值查找
 	void Insert(int i , DataType x);
 	DataType Delete(int i);
-	void PrintList();//遍历
+	void PrintList();//遍历	
+	int SearchRepeat();//查找重复的数
+	int SearchEven();//查找奇数
+	void Reverse();//将带头结点的单链表逆置
 	int count;
-	int SearchRepeat();
-	int SearchEven();
 private:
 	Node<DataType> *first;
 };
@@ -201,4 +202,19 @@ int LinkList<DataType>::SearchEven()
 		p = p->next;
 	} 
 	return -1;
+}
+
+template<typename DataType>
+void LinkList<DataType>::Reverse()
+{
+	Node<DataType> *p = first->next;
+	Node<DataType> *pre = NULL;
+	while (p != NULL)
+	{
+		Node<DataType> *r = p->next;
+		p->next = pre;
+		pre = p;
+		p = r;
+	}
+	first->next = pre;
 }
