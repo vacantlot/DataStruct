@@ -1,6 +1,9 @@
 #include "LinkedQueue.h"
 #include <iostream>
 using namespace std;
+#pragma region Êä³öÑî»ÔÈı½Ç
+
+#pragma endregion
 
 int main()
 {

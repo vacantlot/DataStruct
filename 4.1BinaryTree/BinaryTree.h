@@ -27,6 +27,7 @@ public:
 	BTNode<T>* Find(const T item) const;
 	void Release(BTNode<T> *root);   //析构函数调用 
 	BTNode<T>* search(BTNode<T> *B , T search_data);
+	int Leave(BTNode<T>* BT);//返回二叉树中的叶子节点数
 private:
 	BTNode<T> *root;         //指向根结点的头指针
 	BTNode<T> *Create();     //有参构造函数调用
@@ -348,4 +349,25 @@ BTNode<T>*  BinaryTree<T>::search(BTNode<T> *B , T search_data)
 	//            return B;
 	//        B = search(B->right_child, search_data);
 	//    }
+}
+
+//************************************
+//返回二叉树中的叶子节点数
+// Method:    Leave
+// FullName:  Leave
+// Access:    public 
+// Parameter: BTNode<char> * BT
+//************************************
+template<typename T>
+int BinaryTree<T>::Leave(BTNode<T> *BT) //求二叉树中的叶子节点数
+{
+	if (BT == nullptr)
+		return 0;
+	else
+	{
+		if (BT->lchild == nullptr && BT->rchild == nullptr)
+			return 1;
+		else
+			return(Leave(BT->lchild) + Leave(BT->rchild));
+	}
 }
