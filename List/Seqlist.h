@@ -4,20 +4,21 @@ template<class DataType>
 class SeqList
 {
 public:
-	SeqList(){length = 0;}
-	SeqList(DataType a[] , int n);
-	~SeqList(){}
-	int Length(){ return length;}
-	DataType Get(int);
-	int Locate(DataType x);
-	void Insert(int i ,DataType x);
-	DataType Delete(int i);
-	void PrintList();
 	int x;
-	void Add(int x);
+	void PrintListYH();	
+	void Add(int x);  //在表尾加一个值
+	inline SeqList() { length = 0; }            //无参构造函数，建立一个空的顺序表
+	SeqList(DataType a[], int n);       //有参构造函数，建立一个长度为n的顺序表
+	~SeqList() { }                   //析构函数为空
+	inline int Length() { return length; }        //求线性表的长度
+	DataType Get(int i);               //按位查找，在线性表中查找第i个元素
+	int Locate(DataType x);           //按值查找，在线性表中查找值为x的元素序号
+	void Insert(int i, DataType x);       //插入操作，在线性表中第i个位置插入值为x的元素
+	DataType Delete(int i);              //删除操作，删除线性表的第i个元素
+	void PrintList();                     //遍历操作，按序号依次输出各元素
 private:
-	DataType data[MaxSize];
-	int length;
+	DataType data[MaxSize];           //存放数据元素的数组
+	int length;                        //线性表的长度
 };
 
 
@@ -54,8 +55,13 @@ DataType SeqList<DataType>::Get(int i)
 template <class DataType>
 int SeqList<DataType>::Locate(DataType x)
 {
-	for(int i = 1; i < length ; i++)
-		if(data[i] == x)return i+1;
+	for (int i = 1; i < length; i++)
+		if (data[i] == x)
+		{
+			cout << "找到了";
+			return i + 1;
+		}
+	cout << "没找到";
 	return 0;
 }
 
@@ -74,7 +80,7 @@ DataType SeqList<DataType>::Delete(int i)
 }
 
 template<class DataType>
-void SeqList<DataType>::PrintList()
+void SeqList<DataType>::PrintListYH()
 {
 	int n = 1;
 	for (int i = 0; i < length; i++)
@@ -85,6 +91,16 @@ void SeqList<DataType>::PrintList()
 			cout << endl;
 			n++;
 		}
+	}
+}
+
+template<class DataType>
+inline void SeqList<DataType>::PrintList()
+{
+	int n = 1;
+	for (int i = 0; i < length; i++)
+	{
+		cout << data[i] << " ";		
 	}
 }
 

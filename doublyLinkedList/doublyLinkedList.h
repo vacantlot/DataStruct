@@ -3,7 +3,7 @@
 #include<iostream>   //引用输入输出流库函数的头文件
 
 
-// 单链表的结点结构
+// 链表的结点结构
 template <typename DataType>
 struct Node
 {
@@ -33,8 +33,8 @@ LinkedList<DataType> ::LinkedList()
 {
 	first = new Node<DataType>;			//生成头结点
 														
-	first->next = nullptr; //头结点后驱置为空
-	first->prior = nullptr;//头结点前驱置为空
+	first->next = ptrptr; //头结点后驱置为空
+	first->prior = ptrptr;//头结点前驱置为空
 }
 
 template <typename DataType>
@@ -54,7 +54,7 @@ LinkedList<DataType> ::LinkedList(DataType a[], int n)
 	}
 	r->next = first;//链表建立完毕，将终端结点的指针域置空
 	first->prior = r;//头结点prior指向最后一个结点
-	first->data = NULL; //头结点的数据域置为空
+	first->data = nullptr; //头结点的数据域置为空
 }
 
 template <typename DataType>

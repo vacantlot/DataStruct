@@ -6,9 +6,9 @@ class CirQueue
 public:
 	CirQueue() { front = rear = QueueSize - 1; }
 	
-	void EnQueue(DataType x);
-	DataType DeQueue();
-	DataType GetQueue();
+	void EnQueue(DataType x); //入队
+	DataType DeQueue();   //出队
+	DataType GetQueue();  //获取队首
 	bool IsEmpty() { return front == rear ? 0 : 1; }
 private:
 	DataType data[QueueSize];

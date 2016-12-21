@@ -50,7 +50,7 @@ int main()
 	for (int i = 0; i < link.Length(); i += 2)
 	{
 		int del = -1;
-		del = link.SearchEven();
+		del = link.SearchEven();  //SearchEven²éÕÒÆæÊý
 		if(del != -1) link.Delete(del);		
 	}
 	cout<<"É¾³ýºó£º"<<endl;

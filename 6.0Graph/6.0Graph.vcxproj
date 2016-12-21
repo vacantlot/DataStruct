@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{A5B033BD-7E82-4E4C-B708-90348DDD6FD7}</ProjectGuid>
+    <ProjectGuid>{C00C38AE-CD71-48D1-B63F-80F8C469EBCF}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>ShiYan5</RootNamespace>
+    <RootNamespace>My60Graph</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -146,8 +146,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CountTreeNode.cpp" />
-    <ClCompile Include="二叉表示树.cpp" />
+    <ClInclude Include="MGraph.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AdjacencyMatrix.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

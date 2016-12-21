@@ -1,10 +1,11 @@
 #include<iostream>
 #include"seqStack.h"
 #include <fstream>
+#include <string>
 using std::cout;
 using std::cin;
 using std::endl;
-
+using namespace std;
 int main()
 {
 
@@ -13,9 +14,18 @@ int main()
 
 	try {
 #pragma region ¿®∫≈∆•≈‰
-		/*SeqStack<char> seqstack;
-		char r[] = { '{' , '}' , '{' , '{' , '{' , '}' , '(' , ')' , '}' , '}' };
-		for (int i = 0; r[i] != '\0'; i++)
+		SeqStack<char> seqstack;
+		//char r[] = { '{' , '}' , '{' , '{' , '{' , '}' , '(' , ')' , '}' , '}' };
+		string r;
+		cout<<"«Î ‰»Î”˚∆•≈‰¿®∫≈µƒ◊÷∑˚£∫"<<endl;
+		cin >> r;
+		/*char r[100];
+		for (int i = 0; i < 100; i++)
+		{
+		cin>>r[i];
+		}*/
+		cout <<"ƒ„ ‰»Îµƒ «£∫"<< r <<endl;
+		for (int i = 0; i<r.length(); i++)
 		{
 			if (r[i] == '{' || r[i] == '}' || r[i] == '(' || r[i] == ')')
 			{
@@ -39,7 +49,7 @@ int main()
 		if (seqstack.Empty())
 			cout << "1 À˘”–¿®∫≈∆•≈‰≥…π¶£°" << endl;
 		else
-			cout << "0 ªπ”–¿®∫≈–Ë“™∆•≈‰£°" << endl;*/
+			cout << "0 ªπ”–¿®∫≈–Ë“™∆•≈‰£°" << endl;
 
 #pragma endregion
 

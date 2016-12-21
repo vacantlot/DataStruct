@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{A5B033BD-7E82-4E4C-B708-90348DDD6FD7}</ProjectGuid>
+    <ProjectGuid>{B2B6A973-D606-4CFC-A4B9-FD1F25F8741E}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>ShiYan5</RootNamespace>
+    <RootNamespace>ShiYan6</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -146,8 +146,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CountTreeNode.cpp" />
-    <ClCompile Include="二叉表示树.cpp" />
+    <ClCompile Include="TSP.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

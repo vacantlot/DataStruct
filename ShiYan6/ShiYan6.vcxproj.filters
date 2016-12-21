@@ -15,10 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CountTreeNode.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="二叉表示树.cpp">
+    <ClCompile Include="TSP.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

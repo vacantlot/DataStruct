@@ -31,7 +31,7 @@ void LinkList<DataType>::PrintList()
 {
 	Node<DataType> *p;
 	p = first->next;
-	while (p!=NULL)
+	while (p!=nullptr)
 	{
 		cout<<p->data<<" ";
 		p = p->next;
@@ -45,7 +45,7 @@ int LinkList<DataType>::Length()
 	Node<DataType> *p;
 	p = first->next;
 	count=0;
-	while (p!=NULL)
+	while (p!=nullptr)
 	{
 		p=p->next;
 		count++;
@@ -58,12 +58,12 @@ DataType LinkList<DataType>::Get(int i)
 {
 	Node<DataType> *p;
 	p=first->next;count = 1;
-	while(p!=NULL && count<i)
+	while(p!=nullptr && count<i)
 	{
 		p = p->next;
 		count++;
 	}
-	if(p==NULL)throw"找不到！！";
+	if(p==nullptr)throw"找不到！！";
 	else return p->data;
 }
 
@@ -72,7 +72,7 @@ int LinkList<DataType>::locate(DataType x)
 {
 	Node<DataType> *p = first->next;
 	count = 1;
-	while (p!=NULL)
+	while (p!=nullptr)
 	{
 		if(p->data == x) return count;
 		p = p->next;
@@ -87,12 +87,12 @@ void LinkList<DataType>::Insert(int i , DataType x)
 	Node<DataType> *p , *s;
 	p = first;
 	count = 0;
-	while (p!=NULL && count < i-1)
+	while (p!=nullptr && count < i-1)
 	{
 		p = p->next;
 		count++;
 	}
-	if(p == NULL) throw "位置";
+	if(p == nullptr) throw "位置";
 	else{
 		s= new Node<DataType>; s->data = x;
 	s->next = p->next; p->next = s; }
@@ -102,7 +102,7 @@ template <typename DataType>
 LinkList<DataType>::LinkList()
 {
 	first = new Node<DataType>;
-	first->next = NULL;
+	first->next = nullptr;
 }
 
 //头插法建立单链表
@@ -134,7 +134,7 @@ LinkList<DataType>::LinkList(DataType a[],int n)
 		r->next = s; 
 		r = s;
 	}
-	r->next = NULL;
+	r->next = nullptr;
 }
 
 template<typename DataType>
@@ -142,12 +142,12 @@ DataType LinkList<DataType>::Delete(int i)
 {
 	Node<DataType> *p,*q;
 	p = first->next; count = 0;
-	while (p!=NULL && count<i-1)
+	while (p!=nullptr && count<i-1)
 	{
 		p = p->next;
 		count++;
 	}
-	if (p == NULL || p -> next == NULL)
+	if (p == nullptr || p -> next == nullptr)
 	{
 		throw "位置错误";
 	}
@@ -165,7 +165,7 @@ template<typename DataType>
 LinkList<DataType>::~LinkList()
 {
 	Node<DataType> *q;
-	while (first!=NULL)
+	while (first!=nullptr)
 	{
 		q = first;
 		first = first->next;
@@ -176,29 +176,29 @@ LinkList<DataType>::~LinkList()
 template<typename DataType>
 int LinkList<DataType>::SearchRepeat()
 {
-	Node<DataType> *p = first->next;
-		 count = 0;
-		 while (p->next!=NULL)
+	Node<DataType> *p = first->next; //工作指针
+	count = 0;
+	while (p->next != nullptr)
 	{
-		if(p->data == (p->next)->data) 
-			{	
-				return count;
-			}
+		if (p->data == (p->next)->data)
+		{
+			return count; //查找到就返回
+		}
 		count++;
 		p = p->next;
 	}
-	return -1;
+	return -1; //未查找到就返回-1
 }
 
 template<typename DataType>
 int LinkList<DataType>::SearchEven()
 {
-	Node<DataType> *p = first->next;
-	count = 0;
-	while(p->next != NULL)
+	Node<DataType> *p = first->next;//工作指针
+	count = 0;//记录在链表中的位置
+	while(p->next != nullptr)
 	{
-		if((p->data)%2 == 0) return count;
-		count++;
+		if((p->data)%2 == 0) return count;//查找到就返回位置
+		count++; //位置器+1
 		p = p->next;
 	} 
 	return -1;
@@ -208,8 +208,8 @@ template<typename DataType>
 void LinkList<DataType>::Reverse()
 {
 	Node<DataType> *p = first->next;
-	Node<DataType> *pre = NULL;
-	while (p != NULL)
+	Node<DataType> *pre = nullptr;
+	while (p != nullptr)
 	{
 		Node<DataType> *r = p->next;
 		p->next = pre;

@@ -5,13 +5,13 @@ int Count = 0;
 void CountLeaf1(BTNode<char> *bt);
 void CountLeaf(BTNode<char> *bt, int *Count);
 int Leave(BTNode<char> *BT);
-int main() 
-{
-	BinaryTree<char> *bintree = new BinaryTree<char>;
-	//CountLeaf1(bintree->GetRoot());
-
-	cout << "叶子总数:" << Leave(bintree->GetRoot());
-}
+//int main() 
+//{
+//	BinaryTree<char> *bintree = new BinaryTree<char>;
+//	//CountLeaf1(bintree->GetRoot());
+//
+//	cout << "叶子总数:" << Leave(bintree->GetRoot());
+//}
 
 void CountLeaf1(BTNode<char> *bt ) 
 {
