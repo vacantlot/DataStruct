@@ -1,6 +1,10 @@
 #include <iostream>
 using namespace std;
 
+#pragma region 奇数幻方算法
+
+
+
 /*奇数幻方算法*/
 //int main() {
 //	cout << "Please input n:";
@@ -50,6 +54,11 @@ using namespace std;
 //
 //	}
 //}
+#pragma endregion
+
+#pragma region 偶数幻方算法
+
+
 
 /*偶数幻方算法*/
 
@@ -116,3 +125,5 @@ void exchange(int x[][N], int n)
 		}
 	}
 }
+
+#pragma endregion

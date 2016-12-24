@@ -1,5 +1,7 @@
 #pragma once
+#include "..\3.2linkStact\linkStack.h"
 template<typename T>
+#define MaxSizeCode 500
 struct Element
 {
 	T data;
@@ -13,14 +15,13 @@ class HuffmanTree
 public:
 	HuffmanTree(T data[], int w[], int n); //data叶子结点   w 叶子的权值 n叶子个数
 	~HuffmanTree();
-	void Bulid();
-	void Print();
-	int TreeHeight(Element<T> *m_huffTree);
+	void Bulid();  //构建哈夫曼树
+	void Print();  //打印出结点信息
+	void HuffmanTree_Code(int , LinkStack<int> *lStack);
 private:
 	Element<T> *m_huffTree;        //基地址指针
 	int m_size;                    // 哈夫曼树的叶子节点的数量
-	void Select(int & i1, int & i2, int loc);
-
+	void Select(int & i1, int & i2, int loc);//查找权值最小的两个根节点，下标为i1 i2
 };
 
 
@@ -78,20 +79,42 @@ void HuffmanTree<T>::Print()
 	{
 		if (i < m_size)
 		{
-			cout <<"LAEFNODE  " << m_huffTree[i].data << ":" << m_huffTree[i].weight << ":" << m_huffTree[i].parent << ":" << m_huffTree[i].lchild << ":" << m_huffTree[i].rchild << endl;
+			cout <<"下标："<<i<<"  LAEFNODE  " << m_huffTree[i].data << ":" << m_huffTree[i].weight << ":" << m_huffTree[i].parent << ":" << m_huffTree[i].lchild << ":" << m_huffTree[i].rchild << endl;
 		}
 		else
 		{
-			cout << "NULLNODE  " << ":" << m_huffTree[i].weight << ":" << m_huffTree[i].parent << ":" << m_huffTree[i].lchild << ":" << m_huffTree[i].rchild << endl;
+			cout << "下标：" << i<< "  NULLNODE  " << ":" << m_huffTree[i].weight << ":" << m_huffTree[i].parent << ":" << m_huffTree[i].lchild << ":" << m_huffTree[i].rchild << endl;
 		}
 		printf("\n");
 	}
 }
 
+
+
 template<typename T>
-inline int HuffmanTree<T>::TreeHeight(Element<T>* m_huffTree)
+inline void HuffmanTree<T>::HuffmanTree_Code(int i , LinkStack<int> *lStack)
 {
-	
+	if (m_huffTree[i].lchild == -1 && m_huffTree[i].rchild == -1)
+	{
+		cout << m_huffTree[i].data << ":";
+		lStack->PrintStack();
+		cout << endl;
+		lStack->Pop();
+		return;
+	}
+	else 
+	{			
+		if (m_huffTree[i].lchild != -1)
+		{
+			lStack->Push(1);
+			HuffmanTree_Code(m_huffTree[i].lchild, lStack);
+		}
+		if (m_huffTree[i].rchild != -1)
+		{
+			lStack->Push(0);
+			HuffmanTree_Code(m_huffTree[i].rchild, lStack);
+		}	
+	}
 }
 
 template<typename T>
@@ -123,3 +146,4 @@ void HuffmanTree<T>::Select(int &i1, int &i2, int loc)
 		}
 	}
 }
+

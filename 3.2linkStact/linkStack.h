@@ -16,6 +16,8 @@ public:
 	DataType Pop();                //将栈顶元素弹出
 	DataType GetTop() { if (top != nullptr) return top->data; }  //取栈顶元素（并不删除）
 	int Empty() { return top == nullptr ? 1 : 0; }           //判断栈是否为空
+	void PrintStack();
+	void Inverse(Node<DataType> *p);//递归反向输出栈
 private:
 	Node<DataType> *top;                //栈顶指针，即链栈的头指针
 };
@@ -52,6 +54,33 @@ DataType LinkStack<DataType>::Pop()
 	top = top->next;
 	delete p;
 	return x;
+}
+
+template<class DataType>
+inline void LinkStack<DataType>::PrintStack()
+{
+	Node<DataType> *p = top;
+	/*while (true)
+	{
+		if (p != nullptr)
+			cout<<p->data;
+		else
+		{
+			break;
+		}
+		p = p->next;
+	}*/
+	Inverse(p);
+	
+}
+
+template<class DataType>
+inline void LinkStack<DataType>::Inverse(Node<DataType>* p)
+{
+	if (p->next != nullptr)			
+		Inverse(p->next);
+	cout << p->data;
+	
 }
 
 
@@ -116,3 +145,4 @@ DataType LinkStack<DataType>::Pop()
 //}
 //
 //
+

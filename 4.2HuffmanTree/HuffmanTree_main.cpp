@@ -56,12 +56,23 @@ int main()
 	//	cout << *ex;
 	//}
 	//
-	char ch[] = {'a' , 'b' , 'c' , 'd' , 'e'};
-	int w[] = {35,25,15,15,10};
-	
-	HuffmanTree<char> huffTree(ch, w, 5);
+	char ch[] = {'a' , 'b' , 'c' , 'd' , 'e','f','g'};
+	int w[] = {2,0,1,5,1,4,6};
+	HuffmanTree<char> huffTree(ch, w, 7);
 	huffTree.Bulid();
 	huffTree.Print();
-	int huff[5];
+	LinkStack<int> *lStack = new LinkStack<int>();
+	try
+	{
+		huffTree.HuffmanTree_Code(12,lStack);
+	}
+	catch (char* e)
+	{
+		cout << e << endl;
+	}
+	catch (const std::exception& e)
+	{
+		e.what();
+	}
 	cin.ignore();
 }

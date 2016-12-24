@@ -81,7 +81,8 @@ void LinkQueue<DataType>::Show()
 {
 	Node <DataType> *s;
 	s = front->next;
-	for (; s != nullptr; s = s->next)cout << s->data << "\t";
+	for (; s != nullptr; s = s->next)
+		cout << s->data << "\t";
 	cout << "\n";
 
 }

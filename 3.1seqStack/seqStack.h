@@ -16,9 +16,6 @@ private:
 };
 
 
-
-
-
 template<typename DataType>
 inline void SeqStack<DataType>::Push(DataType x)
 {
