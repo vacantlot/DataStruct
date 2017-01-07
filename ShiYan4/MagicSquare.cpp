@@ -6,54 +6,54 @@ using namespace std;
 
 
 /*奇数幻方算法*/
-//int main() {
-//	cout << "Please input n:";
-//	int n;
-//	cin >> n;
-//	int ** a;
-//	a = new int *[n];
-//	for (int i = 0; i < n; i++)
-//		a[i] = new int[n];		//用n的大小初始化一个二维数组
-//	if (n % 2 != 0)
-//	{
-//		int i = 0, j = n / 2;
-//		a[i][j] = 1;      //将1存入第一排的中间
-//		for (int k = 2; k <= n*n; k++)
-//		{
-//			int iTemp = i, jTemp = j; //暂存i和j的值
-//			i = (i - 1 + n) % n;    //即i = i - 1 ；if（i < 0） i = n - 1;
-//			j = (j - 1 + n) % n;    //即j = j - 1 ；if（j < 0） j = n - 1;
-//			if (a[i][j] > 0)     //如果第i行j列已填数
-//			{
-//				i = (iTemp + 1) % n;  //即i = iTemp + 1 ; if(i == n) i = 0;
-//				j = jTemp;       //原位置的同一列
-//			}
-//			a[i][j] = k;
-//		}
-//
-//		for (int i = 0; i < n; i++)
-//		{
-//			for (int j = 0; j < n; j++)  //输入排好的幻方
-//			{
-//				cout << a[i][j] << "\t";
-//			}
-//			cout << "\n";
-//		}
-//	}
-//	else
-//	{
-//		int i, j;
-//		magic_o(a , n/2); exchange(a, n);
-//		for (i = 0; i < n; i++)
-//		{
-//			for (j = 0; j < n; j++)
-//				printf("%2d", a[i][j]);
-//				printf("\n");
-//		}
-//		return 0;
-//
-//	}
-//}
+int main() {
+	cout << "Please input n:";
+	int n;
+	cin >> n;
+	int ** a;
+	a = new int *[n];
+	for (int i = 0; i < n; i++)
+		a[i] = new int[n];		//用n的大小初始化一个二维数组
+	if (n % 2 != 0)
+	{
+		int i = 0, j = n / 2;
+		a[i][j] = 1;      //将1存入第一排的中间
+		for (int k = 2; k <= n*n; k++)
+		{
+			int iTemp = i, jTemp = j; //暂存i和j的值
+			i = (i - 1 + n) % n;    //即i = i - 1 ；if（i < 0） i = n - 1;
+			j = (j - 1 + n) % n;    //即j = j - 1 ；if（j < 0） j = n - 1;
+			if (a[i][j] > 0)     //如果第i行j列已填数
+			{
+				i = (iTemp + 1) % n;  //即i = iTemp + 1 ; if(i == n) i = 0;
+				j = jTemp;       //原位置的同一列
+			}
+			a[i][j] = k;
+		}
+
+		for (int i = 0; i < n; i++)
+		{
+			for (int j = 0; j < n; j++)  //输入排好的幻方
+			{
+				cout << a[i][j] << "\t";
+			}
+			cout << "\n";
+		}
+	}
+	else
+	{
+		int i, j;
+		magic_o(a , n/2); exchange(a, n);
+		for (i = 0; i < n; i++)
+		{
+			for (j = 0; j < n; j++)
+				printf("%2d", a[i][j]);
+				printf("\n");
+		}
+		return 0;
+
+	}
+}
 #pragma endregion
 
 #pragma region 偶数幻方算法
@@ -65,7 +65,7 @@ using namespace std;
 #include<stdio.h> 
 #include<stdlib.h>
 #define N 6
-#define SWAP(x, y) { int t; t = x; x = y; y = t; }
+#define SWAP(x, y) { int t; t = x; x = y; y = t;}
 void magic_o(int[][N], int);
 void exchange(int[][N], int);
 int main(void)

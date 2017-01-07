@@ -5,7 +5,7 @@ template<typename T>
 struct Element
 {
 	T data;
-	int weight;
+	float weight;
 	int lchild, rchild, parent;
 };
 
@@ -126,7 +126,7 @@ void HuffmanTree<T>::Select(int &i1, int &i2, int loc)
 	{
 		if (m_huffTree[i].parent == -1)
 		{
-			int tempWeight = m_huffTree[i].weight;
+			float tempWeight = m_huffTree[i].weight;
 			if (i1 == -1)
 			{
 				i1 = i;

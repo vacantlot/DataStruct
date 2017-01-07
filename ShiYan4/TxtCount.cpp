@@ -18,21 +18,7 @@
 //		int totalNum = 0;
 //		errno_t err;
 //		if ((err = fopen_s(&infile,"C:\\Users\\Chen\\Desktop\\桌面\\数据结构\\DataStruct\\ShiYan4\\Debug\\TxtCount.txt" , "r")) == 0)
-//		{
-//			/*char temp[1023];
-//			int state = 1;
-//			while (!infile.eof())
-//			{
-//				temp = infile.getline();
-//				if (temp == ' '|| temp == '\t')
-//				{
-//					state = 1;
-//				}
-//				else if (state == 1)
-//				{
-//					state = 0;
-//					count++;
-//				}*/			
+//		{	
 //			// 每次读取一行数据，保存到buffer，每行最多只能有1000个字符
 //			while (fgets(buffer, 1003, infile) != NULL) 
 //			{
@@ -81,7 +67,7 @@
 //int *getCharNum(char *filename, int *totalNum);
 //int main() {
 //	char filename[30];
-//	// totalNum[0]: 总行数  totalNum[1]: 总字符数  totalNum[2]: 总单词数
+//	 //totalNum[0]: 总行数  totalNum[1]: 总字符数  totalNum[2]: 总单词数
 //	int totalNum[3] = { 0, 0, 0 };
 //	printf("Input file name: ");
 //	cin >> filename;
